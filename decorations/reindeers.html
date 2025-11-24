@@ -5,12 +5,31 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Reindeers — A Christmas for Everyone</title>
   <style>
-    body{ font-family: 'Aptos', system-ui, -apple-system, "Segoe UI", Roboto, Arial; margin:0; padding:40px; background: linear-gradient(135deg, #6f2dbd, #43165f); color:#fff }
-    .card{ background: linear-gradient(180deg,#fff 0%, rgba(111,45,189,0.04) 100%); color:#111; border-radius:12px; padding:18px; max-width:900px; margin:auto }
+    body{ font-family: 'Aptos', system-ui, -apple-system, "Segoe UI", Roboto, Arial; margin:0; padding:96px 20px 40px; background: linear-gradient(135deg, #6f2dbd, #43165f); color:#fff }
+    header{ position:fixed; top:0; left:0; right:0; height:64px; display:flex; align-items:center; justify-content:space-between; padding:0 20px; background:linear-gradient(90deg, rgba(67,22,95,0.9), rgba(111,45,189,0.85)); box-shadow:0 4px 18px rgba(0,0,0,0.35); z-index:50 }
+    header .brand{ font-weight:700; letter-spacing:0.4px }
+    nav a{ color:#fff; margin-left:18px; text-decoration:none; font-weight:600 }
+    .container{ max-width:1100px; margin:0 auto }
+    .card{ background: linear-gradient(180deg,#fff 0%, rgba(111,45,189,0.06) 100%); color:#111; border-radius:12px; padding:22px; margin-bottom:18px }
+    .gallery{ display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:12px; margin-top:12px }
+    .gallery img{ width:100%; height:160px; object-fit:cover; border-radius:10px; box-shadow:0 6px 18px rgba(0,0,0,0.25) }
+    a.back{ color:#fff; display:inline-block; margin-bottom:10px }
   </style>
 </head>
 <body>
-  <a href="/" style="display:inline-block; margin-bottom:18px; color:#fff;">← Back</a>
+  <header>
+    <div class="brand">A Christmas for Everyone</div>
+    <nav>
+      <a href="/">Home</a>
+      <a href="/decorations/eco-santa.html">Eco-Santa</a>
+      <a href="/decorations/reindeers.html">Reindeers</a>
+      <a href="/decorations/snowman.html">Snowman</a>
+      <a href="/decorations/christmas-workstation.html">Workstation</a>
+    </nav>
+  </header>
+
+  <div class="container">
+  <a href="/" class="back">← Back to Home</a>
   <div class="card">
     <h1>Reindeers</h1>
     <p>Two sustainable reindeer designs you can make from household materials.</p>
@@ -18,6 +37,14 @@
     <p>Cut a reindeer silhouette from corrugated cardboard. Use painted pistachio shells or other small shells for decorative texture (antlers or body accents). Seal with a water-based varnish.</p>
     <h3>2) Toilet Paper Roll Reindeer</h3>
     <p>Use empty toilet-paper rolls as the base. Add pipe-cleaner antlers, button eyes, and a pom-pom nose. Paint or wrap in scrap fabric for color.</p>
+    <h3>Gallery</h3>
+    <div class="gallery">
+      <img src="./88ddfc36-d8fa-4efc-a2cf-61abf9c25349.jfif" alt="Reindeer 1">
+      <img src="./5c5a3604-c20f-4bfe-87b9-c08656345514.jfif" alt="Reindeer 2">
+      <img src="./37e572dc-ed31-4abd-ab36-8f6c2bc81ffd.jfif" alt="Reindeer 3">
+      <img src="./2e947829-b9b9-4b6b-8283-c587e2cb663b.jfif" alt="Reindeer 4">
+    </div>
+  </div>
   </div>
 </body>
 </html>
