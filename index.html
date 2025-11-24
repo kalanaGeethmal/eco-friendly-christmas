@@ -3,25 +3,39 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Eco-Friendly Christmas</title>
-  <!-- Lora webfont -->
-  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
-<style>
+<title>A Christmas for Everyone</title>
+  <!-- Aptos webfont (via CDN) -->
+  <link href="https://fonts.cdnfonts.com/css/aptos" rel="stylesheet">
+ <style>
+  :root{
+    --deep-purple:#6f2dbd;
+    --deep-purple-2:#43165f;
+    --silver:#c0c0c0;
+    --silver-text:#f5f5f7;
+    --card-bg: #c0c0c0;
+  }
+
+  html,body{
+    height:100%;
+  }
+
   body {
     margin: 0;
     padding: 0;
-    font-family: 'Lora', serif;
-    /* Stronger light purple page background */
-    background: #e6d6ff;
-    color: #222;
+    font-family: 'Aptos', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    /* Deep purple gradient background */
+    background: linear-gradient(135deg, var(--deep-purple) 0%, var(--deep-purple-2) 100%);
+    color: #111;
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;
   }
 
   .overlay {
-    /* Stronger tint and slightly more opaque for contrast */
-    background: rgba(230,214,255,0.95);
+    /* translucent layer to soften the gradient */
+    background: linear-gradient(180deg, rgba(239,230,255,0.06), rgba(239,230,255,0.02));
     min-height: 100vh;
-    padding: 40px 20px;
-    backdrop-filter: blur(4px);
+    padding: 48px 20px;
+    backdrop-filter: blur(6px);
   }
 
   .container {
@@ -29,12 +43,28 @@
     margin: auto;
   }
 
+  /* Heading animation */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(14px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
   h1 {
     text-align: center;
     font-size: 3rem;
-    color: #6f2dbd;
-    text-shadow: 0 0 6px rgba(255,255,255,0.9);
-    margin-bottom: 10px;
+    color: var(--silver-text);
+    margin: 0 0 6px 0;
+    letter-spacing: 0.6px;
+    animation: fadeUp 800ms cubic-bezier(.2,.9,.2,1) both;
+    text-shadow: 0 6px 18px rgba(111,45,189,0.18);
+  }
+
+  .subtitle-heading {
+    text-align:center;
+    color: rgba(245,245,247,0.9);
+    font-size: 1rem;
+    margin-bottom: 18px;
+    opacity: 0.95;
   }
 
   h2 {
@@ -59,23 +89,39 @@
   }
 
   .card {
-    background: #eef7ee;
-    padding: 18px;
+    background: var(--card-bg);
+    color: #111;
+    padding: 16px;
     border-radius: 14px;
-    border-left: 8px solid #7d4bcc;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.12);
+    box-shadow: 0 8px 20px rgba(15,8,28,0.25), 0 0 18px rgba(111,45,189,0.06);
+    transition: transform .18s ease, box-shadow .18s ease;
+    display:flex;
+    flex-direction:column;
+    align-items:stretch;
   }
+
+  .card:hover{ transform: translateY(-6px); box-shadow: 0 18px 40px rgba(15,8,28,0.35), 0 0 30px rgba(111,45,189,0.12); }
 
   .card img {
     width: 100%;
-    height: 200px;
+    height: 180px;
     object-fit: cover;
     border-radius: 10px;
     margin-top: 12px;
+    background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(0,0,0,0.02));
   }
 
+  .card .label { margin-top:12px; font-weight:600; color:#0b0b0b }
+
   .facts-section .card {
-    border-left-color: #4caf50;
+    background: var(--card-bg);
+    border-left: none;
+  }
+
+  /* Responsive spacing tweaks */
+  @media (max-width:600px){
+    h1{font-size:2rem}
+    .subtitle-heading{font-size:.95rem}
   }
 </style>
 </head>
@@ -83,28 +129,29 @@
 <div class="overlay">
 <div class="container">
 
-<h1>Eco-Friendly Christmas</h1>
-<p class="subtitle">A tree built from waste branches. Lanterns made from cans. Animals crafted from scrap paper.</p>
+<h1>A Christmas for Everyone</h1>
+<p class="subtitle-heading">a concept by JIT – 4th Floor</p>
+<p class="subtitle" style="text-align:center; max-width:900px; margin:10px auto 20px; color:rgba(245,245,247,0.9); font-weight:600;">The Christmas tree was built from waste branches, cans, and scrap paper — celebrating a creative, zero-waste holiday.</p>
 
-<h2>Critically Endangered Species</h2>
-<p class="subtitle">14 branches × 1,000 animals each = 14,000 lives hanging by a thread.</p>
+<h2 style="color:var(--silver-text);">Critically Endangered Species Represented by 14 Branches</h2>
+<p class="subtitle" style="color:rgba(245,245,247,0.9);">Each branch represents 1,000 critically endangered animals (Total ≈ 14,000).</p>
 
   <div class="grid">
 
-  <div class="card">African Forest Elephant – ~10,000<img src="images/OIP.webp"></div>
-  <div class="card">Yangtze Finless Porpoise – ~1,000<img src="images/OIP_(1).webp"></div>
-  <div class="card">Mountain Gorilla – ~1,060<img src="images/OIP_(2).webp"></div>
-  <div class="card">Amur Leopard – ~110<img src="images/OIP_(3).webp"></div>
-  <div class="card">Sumatran Tiger – ~400<img src="images/OIP_(4).webp"></div>
-  <div class="card">Sumatran Rhino – ~80<img src="images/6t0mr32ggi_Photo_3_Sumatran_rhino_4__c__Bill_Konstant_International_Rhino_Foundation.jpg"></div>
-  <div class="card">Javan Rhino – ~76<img src="images/OIP_(5).webp"></div>
-  <div class="card">Cross River Gorilla – ~300<img src="images/OIP_(6).webp"></div>
-  <div class="card">Kakapo – ~250<img src="images/OIP_(7).webp"></div>
-  <div class="card">Saola – ~50<img src="images/R.jfif"></div>
-  <div class="card">Philippine Eagle – ~400<img src="images/OIP_(8).webp"></div>
-  <div class="card">Black-footed Ferret – ~370<img src="images/OIP_(9).webp"></div>
-  <div class="card">Red Wolf – ~20<img src="images/OIP_(10).webp"></div>
-  <div class="card">Vaquita – ~10<img src="images/OIP_(11).webp"></div>
+  <div class="card"><img src="images/OIP.webp" alt="African Forest Elephant"><div class="label">African Forest Elephant – ~10,000</div></div>
+  <div class="card"><img src="images/OIP_(1).webp" alt="Yangtze Finless Porpoise"><div class="label">Yangtze Finless Porpoise – ~1,000</div></div>
+  <div class="card"><img src="images/OIP_(2).webp" alt="Mountain Gorilla"><div class="label">Mountain Gorilla – ~1,060</div></div>
+  <div class="card"><img src="images/OIP_(3).webp" alt="Amur Leopard"><div class="label">Amur Leopard – ~110</div></div>
+  <div class="card"><img src="images/OIP_(4).webp" alt="Sumatran Tiger"><div class="label">Sumatran Tiger – ~400</div></div>
+  <div class="card"><img src="images/6t0mr32ggi_Photo_3_Sumatran_rhino_4__c__Bill_Konstant_International_Rhino_Foundation.jpg" alt="Sumatran Rhino"><div class="label">Sumatran Rhino – ~80</div></div>
+  <div class="card"><img src="images/OIP_(5).webp" alt="Javan Rhino"><div class="label">Javan Rhino – ~76</div></div>
+  <div class="card"><img src="images/OIP_(6).webp" alt="Cross River Gorilla"><div class="label">Cross River Gorilla – ~300</div></div>
+  <div class="card"><img src="images/OIP_(7).webp" alt="Kakapo"><div class="label">Kakapo – ~250</div></div>
+  <div class="card"><img src="images/R.jfif" alt="Saola"><div class="label">Saola – ~50</div></div>
+  <div class="card"><img src="images/OIP_(8).webp" alt="Philippine Eagle"><div class="label">Philippine Eagle – ~400</div></div>
+  <div class="card"><img src="images/OIP_(9).webp" alt="Black footed Ferret"><div class="label">Black footed Ferret – ~370</div></div>
+  <div class="card"><img src="images/OIP_(10).webp" alt="Red Wolf"><div class="label">Red Wolf – ~20</div></div>
+  <div class="card"><img src="images/OIP_(11).webp" alt="Vaquita"><div class="label">Vaquita – ~10</div></div>
 
 </div>
 
