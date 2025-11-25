@@ -38,8 +38,10 @@
   }
 
   .overlay {
-    /* translucent layer to soften the gradient */
-    background: linear-gradient(180deg, rgba(239,230,255,0.06), rgba(239,230,255,0.02));
+    /* background image with subtle translucent overlay for readability */
+    background-image: linear-gradient(180deg, rgba(239,230,255,0.18), rgba(239,230,255,0.04)), url("images/Background Image.png");
+    background-size: cover;
+    background-position: center center;
     min-height: 100vh;
     padding: 48px 20px;
     backdrop-filter: blur(6px);
