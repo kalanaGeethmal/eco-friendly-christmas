@@ -65,13 +65,16 @@
 
 <h2 class="section-title">Decorations</h2>
 <p class="subtitle" style="color:rgba(245,245,247,0.9);">Handcrafted, sustainable decorations made from reused materials — click any tile to view details.</p>
-<div class="decorations-grid">
+<div class="decorations-carousel" id="decorationsCarousel">
 </div>
-  <div class="tile"><a href="decorations/eco-santa.html"><img src="decorations/decoration-images/eco-santa.jfif" alt="Eco-Santa"><span class="tile-title">Eco-Santa</span></a></div>
-  <div class="tile"><a href="decorations/reindeers.html"><img src="decorations/decoration-images/reindeer.jfif" alt="Reindeers"><span class="tile-title">Reindeers</span></a></div>
-  <div class="tile"><a href="decorations/snowman.html"><img src="decorations/decoration-images/stars.jfif" alt="Snowman"><span class="tile-title">Snowman</span></a></div>
-  <div class="tile"><a href="decorations/christmas-workstation.html"><img src="decorations/decoration-images/christmas-workstation.jfif" alt="Workstation"><span class="tile-title">Workstation</span></a></div>
-  <div class="tile"><a href="decorations/christmas-crib.html"><img src="decorations/decoration-images/crib.jpg" alt="Christmas Crib"><span class="tile-title">Christmas Crib</span></a></div>
+<p class="subtitle" style="color:rgba(245,245,247,0.9);">Handcrafted, sustainable decorations made from reused materials — swipe to see more.</p>
+<div class="decorations-carousel" id="decorationsCarousel">
+  <div class="decorations-item"><a href="decorations/eco-santa.html"><img src="decorations/decoration-images/eco-santa.jfif" alt="Eco-Santa"><div class="label">Eco-Santa</div></a></div>
+  <div class="decorations-item"><a href="decorations/reindeers.html"><img src="decorations/decoration-images/reindeer.jfif" alt="Reindeers"><div class="label">Reindeers</div></a></div>
+  <div class="decorations-item"><a href="decorations/snowman.html"><img src="decorations/decoration-images/stars.jfif" alt="Snowman"><div class="label">Snowman</div></a></div>
+  <div class="decorations-item"><a href="decorations/christmas-workstation.html"><img src="decorations/decoration-images/christmas-workstation.jfif" alt="Workstation"><div class="label">Workstation</div></a></div>
+  <div class="decorations-item"><a href="decorations/christmas-crib.html"><img src="decorations/decoration-images/crib.jpg" alt="Christmas Crib"><div class="label">Christmas Crib</div></a></div>
+</div>
 </div>
 
 </div>
@@ -79,29 +82,32 @@
 </body>
 <script src="scripts.js"></script>
 <script>
-// IntersectionObserver to mark centered carousel item as active
+// IntersectionObserver to mark centered carousel items as active (animals + decorations)
 ;(function(){
-  const carousel = document.getElementById('animalCarousel');
-  if(!carousel) return;
-  const items = Array.from(carousel.querySelectorAll('.carousel-item'));
+  function setupCarousel(id, itemSelector, threshold = 0.55){
+    const carousel = document.getElementById(id);
+    if(!carousel) return;
+    const items = Array.from(carousel.querySelectorAll(itemSelector));
+    const io = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{
+        const el = e.target;
+        if(e.intersectionRatio > threshold){
+          items.forEach(i=>i.classList.remove('active'));
+          el.classList.add('active');
+        }
+      });
+    },{ root: carousel, threshold:[threshold] });
+    items.forEach(i=> io.observe(i));
 
-  const io = new IntersectionObserver((entries)=>{
-    entries.forEach(e=>{
-      const el = e.target;
-      if(e.intersectionRatio > 0.55){
-        items.forEach(i=>i.classList.remove('active'));
-        el.classList.add('active');
-      }
+    // center a mid item on load for better UX
+    window.addEventListener('load', ()=>{
+      const first = items[Math.floor(items.length/2)];
+      if(first){ first.scrollIntoView({inline:'center', behavior:'smooth'}); }
     });
-  },{ root: carousel, threshold:[0.55] });
+  }
 
-  items.forEach(i=> io.observe(i));
-
-  // ensure one item is active on load (center the first item)
-  window.addEventListener('load', ()=>{
-    const first = items[Math.floor(items.length/2)];
-    if(first){ first.scrollIntoView({inline:'center', behavior:'smooth'}); }
-  });
+  setupCarousel('animalCarousel', '.carousel-item', 0.55);
+  setupCarousel('decorationsCarousel', '.decorations-item', 0.5);
 })();
 </script>
 </html>
