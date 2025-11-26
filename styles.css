@@ -81,7 +81,8 @@ h2 { font-family: 'Poppins', system-ui, sans-serif; font-weight: 600; font-size:
 .decorations-grid .tile{ background: linear-gradient(180deg,#ffffff 0%, rgba(111,45,189,0.04) 100%); border-radius:12px; padding:8px; text-align:center; box-shadow:0 10px 26px rgba(11,7,20,0.08); transition:transform .18s ease }
 .decorations-grid .tile img{ width:100%; height:160px; object-fit:cover; border-radius:8px }
 .decorations-grid .tile a{ display:block; margin-top:8px; color:var(--deep-purple-2); font-weight:700; text-decoration:none }
-.decorations-grid .tile:hover{ transform:translateY(-6px) }
+.decorations-grid .tile .tile-title{ display:block; margin-top:8px; color:var(--white); font-weight:800; text-shadow:0 6px 18px rgba(0,0,0,0.35) }
+.decorations-grid .tile:hover{ transform:translateY(-10px); box-shadow:0 28px 60px rgba(15,8,28,0.32) }
 
 /* Small helpers */
 .nav-back{ color:#fff; display:inline-block; margin-bottom:10px; font-weight:700 }
